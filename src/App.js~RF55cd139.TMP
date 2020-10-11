@@ -1,0 +1,38 @@
+import React from 'react';
+import {Component} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Layout from "./layout";
+import Header from "./component_1";
+
+class App extends Component {
+ state={item:'pawan',value:1,len:0}
+
+ clickHandler=()=>{
+   this.setState((state)=>{
+
+     return {
+       value:state.value+2}
+     })
+ }
+
+ countHandler=(event)=>{
+    this.setState((state)=>{
+     return {len:state.len+1}
+   })
+ }
+
+
+ render(){
+  return (
+    <div className="App">
+    <Layout>
+      <Header someaction={this.clickHandler} value={this.state.value} textcount={this.countHandler.bind(this)}  length={this.state.len}/>
+   </Layout>
+
+    </div>
+  );
+}
+}
+
+export default App;
